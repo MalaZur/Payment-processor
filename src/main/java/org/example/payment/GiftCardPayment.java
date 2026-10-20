@@ -21,6 +21,6 @@ public class GiftCardPayment extends PaymentMethod{
 
         balance -= amount;
 
-        return new PaymentResult(true, "Paid " + amount + " using gift card");
+        return new PaymentResult(true, "Paid " + amount + " using gift card\nGift card available balance: " + balance + "\n");
     }
 }

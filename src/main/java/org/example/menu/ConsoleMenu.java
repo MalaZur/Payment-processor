@@ -106,6 +106,14 @@ public class ConsoleMenu {
             return;
         }
 
+        System.out.println("Choose your currency (example - EUR, USD, RUB): ");
+        String currency = scanner.nextLine();
+
+        if (!currency.trim().toUpperCase().equals(AppConfig.getInstance().getCurrency())){
+            System.out.println("Sorry, we only accept EUR");
+            return;
+        }
+
         System.out.println("""
                 Select payment method:
                 1. Credit Card
@@ -141,7 +149,8 @@ public class ConsoleMenu {
         return PaymentMethodFactory.createCreditCardPayment(cardNumber,cardHolderName);
     }
 
-    private  PaymentMethod createPaypalPayment(){
+
+    private PaymentMethod createPaypalPayment(){
         System.out.println("PayPal email: ");
         String email = scanner.nextLine();
 
